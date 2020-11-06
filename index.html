@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Music repeater</title>
+  <meta name="description" content="Music repeater">
+  <meta name="author" content="Forrana">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+<body>
+  <section id="app">
+    <audio id="myAudio" ref="audio" controls>
+      <source src="audio/Narri.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <ol>
+      <li v-for="number in numbersList" v-on:click="setNumberTime(number.time)" :key="number.time">
+        {{ number.name }} - {{ number.participanst}}
+      </li>
+    </ol>
+  </section>
+
+  <script src="node_modules/vue/dist/vue.global.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
