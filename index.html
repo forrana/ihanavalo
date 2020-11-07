@@ -13,14 +13,18 @@
 </head>
 <body>
   <section id="app">
-    <audio id="myAudio" ref="audio" controls>
+    <audio id="myAudio" ref="audio">
       <source src="audio/Narri.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
-    <ol>
-      <li v-for="number in numbersList" v-on:click="setNumberTime(number.time)" :key="number.time">
-        {{ number.name }} - {{ number.participanst}}
+    <button v-on:click="play()">
+      <span v-if="isPaused">Play</span>
+      <span v-if="!isPaused">Stop</span>
+    </button>
+    <ol class="list-container">
+      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number.time)" :key="number.time" :class="{ active: index == activeElementIndex }">
+        {{ number.name }} - {{ number.participanst }}
       </li>
     </ol>
   </section>
