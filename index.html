@@ -7,29 +7,38 @@
   <title>Music repeater</title>
   <meta name="description" content="Music repeater">
   <meta name="author" content="Forrana">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
 
 </head>
 <body>
-  <section id="app">
+  <main id="app">
     <audio id="myAudio" ref="audio">
       <source src="audio/Narri.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
+    <section class="controls">
+      <button v-on:click="play()" class="button button-small">
+        <span v-if="isPaused">Play</span>
+        <span v-if="!isPaused">Stop</span>
+      </button>
+      <button v-on:click="toggleRepeat()" class="button button-small">
+        <span v-if="isRepeatMode">Repeat ON</span>
+        <span v-if="!isRepeatMode">Repeat OFF</span>
+      </button>
+      <!-- <input type="number" v-model="timeDelta" min="0" max="15"> -->
 
-    <button v-on:click="play()">
-      <span v-if="isPaused">Play</span>
-      <span v-if="!isPaused">Stop</span>
-    </button>
+    </section>
     <ol class="list-container">
-      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number.time)" :key="number.time" :class="{ active: index == activeElementIndex }">
+      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number.time, true)" :key="number.time" :class="{ active: index == activeElementIndex }">
         {{ number.name }} - {{ number.participanst }}
+        <span v-if="index != activeElementIndex"> {{ totalTime(number) }} </span>
+        <span v-if="index == activeElementIndex"> {{ timeLeft }} </span>
       </li>
     </ol>
-  </section>
+  </main>
 
-  <script src="node_modules/vue/dist/vue.global.js"></script>
+  <script src="js/vue.global.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

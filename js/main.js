@@ -61,17 +61,29 @@ const EventHandling = {
     return {
       currentTime: 0,
       isPaused: true,
+      isRepeatMode: true,
       timeDelta: 5,
-      numbersList: numbersListProcessed,
-      activeElementIndex: 0
+      activeElementIndex: 0,
+      isManualChangeInProcess: false,
+    }
+  },
+  watch: {
+  // whenever question changes, this function will run
+    activeElementIndex(newIndex, oldIndex) {
+      if (this.isRepeatMode && !this.isManualChangeInProcess) {
+        this.setNumberTime(this.numbersList[oldIndex].time);
+        this.isManualChangeInProcess = true;
+      } else {
+        this.isManualChangeInProcess = false;
+      }
     }
   },
   methods: {
-    setNumberTime(time) {
-      this.$refs.audio.currentTime = time - this.timeDelta
+    setNumberTime(time, isManual) {
+      this.$refs.audio.currentTime = time;
+      this.isManualChangeInProcess = isManual;
     },
     play() {
-      console.log(this.$refs.audio.currentTime)
       let audioElement = this.$refs.audio;
       audioElement.paused ? audioElement.play() : audioElement.pause();
       this.isPaused = audioElement.paused;
@@ -79,6 +91,28 @@ const EventHandling = {
         this.currentTime = audioElement.currentTime.toFixed();
         this.activeElementIndex = this.numbersList.findIndex(({time, totalTime}) => this.currentTime >= time && this.currentTime < time+totalTime)
       });
+    },
+    toggleRepeat() {
+      this.isRepeatMode = !this.isRepeatMode
+    },
+    totalTime(number) {
+      let totalTime = number.totalTime;
+      return new Date(totalTime * 1000).toISOString().substr(14, 5);
+    }
+  },
+  computed: {
+    numbersList() {
+      console.log("recalculate", this.timeDelta)
+      return numbersListProcessed.map((element) => {
+        element.time -= this.timeDelta;
+        return element;
+      })
+    },
+    timeLeft() {
+      let startTime = this.numbersList[this.activeElementIndex].time;
+      let totalTime = this.numbersList[this.activeElementIndex].totalTime;
+      let timeLeft = startTime + totalTime - this.currentTime;
+      return new Date(timeLeft * 1000).toISOString().substr(14, 5);
     }
   }
 }
