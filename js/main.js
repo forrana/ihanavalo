@@ -26,7 +26,7 @@ const numbersListRaw = [
   },
   {
     name: "Vanteet",
-    participanst: "Ka, Ma",
+    participanst: "Ka, Ma, Os",
     time: 480
   },
   {
@@ -56,6 +56,10 @@ const numbersListProcessed = numbersListRaw.map((element, index, array) => {
   return element;
 })
 
+function secondsToMMSS(seconds) {
+  return new Date(seconds * 1000).toISOString().substr(14, 5);
+}
+
 const EventHandling = {
   data() {
     return {
@@ -65,16 +69,26 @@ const EventHandling = {
       timeDelta: 5,
       activeElementIndex: 0,
       isManualChangeInProcess: false,
+      isPrePlay: true,
+      repeatModeCounter: 0,
     }
   },
   watch: {
-  // whenever question changes, this function will run
     activeElementIndex(newIndex, oldIndex) {
-      if (this.isRepeatMode && !this.isManualChangeInProcess) {
-        this.setNumberTime(this.numbersList[oldIndex].time);
-        this.isManualChangeInProcess = true;
-      } else {
+      if(this.isManualChangeInProcess) {
         this.isManualChangeInProcess = false;
+        return;
+      }
+
+      if(this.isRepeatMode) {
+        if(newIndex < oldIndex) return;
+
+        if(!this.repeatModeCounter) {
+          this.repeatModeCounter = 1;
+        } else {
+          this.repeatModeCounter = 0;
+          this.setNumberTime(this.numbersList[oldIndex].time);
+        }
       }
     }
   },
@@ -89,7 +103,7 @@ const EventHandling = {
       this.isPaused = audioElement.paused;
       audioElement.addEventListener('timeupdate', () => {
         this.currentTime = audioElement.currentTime.toFixed();
-        this.activeElementIndex = this.numbersList.findIndex(({time, totalTime}) => this.currentTime >= time && this.currentTime < time+totalTime)
+        this.activeElementIndex = this.numbersList.findIndex(({time, totalTime}) => this.currentTime >= time && this.currentTime < time+totalTime+this.timeDelta)
       });
     },
     toggleRepeat() {
@@ -97,7 +111,7 @@ const EventHandling = {
     },
     totalTime(number) {
       let totalTime = number.totalTime;
-      return new Date(totalTime * 1000).toISOString().substr(14, 5);
+      return secondsToMMSS(totalTime);
     }
   },
   computed: {
@@ -108,10 +122,10 @@ const EventHandling = {
       })
     },
     timeLeft() {
-      let startTime = this.numbersList[this.activeElementIndex].time;
+      let startTime = this.numbersList[this.activeElementIndex].time + this.timeDelta;
       let totalTime = this.numbersList[this.activeElementIndex].totalTime;
       let timeLeft = startTime + totalTime - this.currentTime;
-      return new Date(timeLeft * 1000).toISOString().substr(14, 5);
+      return secondsToMMSS(timeLeft)
     }
   }
 }
