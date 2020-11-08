@@ -61,7 +61,7 @@ const EventHandling = {
     return {
       currentTime: 0,
       isPaused: true,
-      isRepeatMode: true,
+      isRepeatMode: false,
       timeDelta: 5,
       activeElementIndex: 0,
       isManualChangeInProcess: false,
@@ -102,7 +102,6 @@ const EventHandling = {
   },
   computed: {
     numbersList() {
-      console.log("recalculate", this.timeDelta)
       return numbersListProcessed.map((element) => {
         element.time -= this.timeDelta;
         return element;
