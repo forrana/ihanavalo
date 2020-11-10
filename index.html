@@ -30,7 +30,7 @@
 
     </section>
     <ol class="list-container">
-      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number.time, true)" :key="number.time" :class="{ active: index == activeElementIndex }">
+      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number, true)" :key="number.time" :class="{ active: index == activeElementIndex }">
         {{ number.name }} - {{ number.participanst }}
         <span v-if="index != activeElementIndex"> {{ totalTime(number) }} </span>
         <span v-if="index == activeElementIndex"> {{ timeLeft }} </span>

@@ -69,8 +69,7 @@ const EventHandling = {
       timeDelta: 5,
       activeElementIndex: 0,
       isManualChangeInProcess: false,
-      isPrePlay: true,
-      repeatModeCounter: 0,
+      selectedForRepeat: null,
     }
   },
   watch: {
@@ -81,20 +80,17 @@ const EventHandling = {
       }
 
       if(this.isRepeatMode) {
-        if(newIndex < oldIndex) return;
-
-        if(!this.repeatModeCounter) {
-          this.repeatModeCounter = 1;
-        } else {
-          this.repeatModeCounter = 0;
-          this.setNumberTime(this.numbersList[oldIndex].time);
+        let selectedIndex = this.numbersList.findIndex(({name}) => this.selectedForRepeat.name == name)
+        if(newIndex != selectedIndex) {
+          this.setNumberTime(this.selectedForRepeat);
         }
       }
     }
   },
   methods: {
-    setNumberTime(time, isManual) {
-      this.$refs.audio.currentTime = time;
+    setNumberTime(number, isManual) {
+      if(isManual) this.selectedForRepeat = number;
+      this.$refs.audio.currentTime = number.time;
       this.isManualChangeInProcess = isManual;
     },
     play() {
