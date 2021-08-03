@@ -1,54 +1,34 @@
 const numbersListRaw = [
   {
-    name: "Kalastus",
-    participanst: "all",
+    name: "Levistic",
+    participanst: "Suvi",
     time: 0
   },
   {
-    name: "Snake",
-    participanst: "Ka, Ma, Os, To",
-    time: 95
+    name: "???",
+    participanst: "???",
+    time: 162
   },
   {
-    name: "Keppi, Hyppis",
-    participanst: "Ka, Al",
-    time: 195
+    name: "???",
+    participanst: "???",
+    time: 305
   },
   {
-    name: "Magneetti-Isolaatio",
-    participanst: "Os, To, Ma",
-    time: 260
+    name: "Finale",
+    participanst: "???",
+    time: 450
   },
   {
-    name: "Poi",
-    participanst: "Ka, Al",
-    time: 400
+    name: "Wrapping up",
+    participanst: "???",
+    time: 515
   },
   {
-    name: "Vanteet",
-    participanst: "Ka, Ma, Os",
-    time: 480
-  },
-  {
-    name: "Miekka",
-    participanst: "Ka, Al",
-    time: 540
-  },
-  {
-    name: "Dragon + Fanit",
-    participanst: "Al, Ma, To",
-    time: 610
-  },
-  {
-    name: "Tupla",
-    participanst: "To, Os, Ma",
-    time: 685
-  },
-  {
-    name: "Loppubileet",
-    participanst: "Kaikki",
-    time: 795
-  },
+    name: "Leaving stage",
+    participanst: "???",
+    time: 637
+  }
 ]
 
 const numbersListProcessed = numbersListRaw.map((element, index, array) => {
