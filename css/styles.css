@@ -166,7 +166,7 @@ body {
   }
 
   .controls {
-    height: 10vh;
+    height: 9vh;
   }
 
   .list-container {
@@ -175,7 +175,7 @@ body {
 
   .list-container ol {
     margin-top: 0;
-    height: 85vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
