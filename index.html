@@ -8,7 +8,7 @@
   <meta name="description" content="Music repeater">
   <meta name="author" content="Forrana">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css?v=1.1">
 
 </head>
 <body>
@@ -29,16 +29,18 @@
       <!-- <input type="number" v-model="timeDelta" min="0" max="15"> -->
 
     </section>
-    <ol class="list-container">
-      <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number, true)" :key="number.time" :class="{ active: index == activeElementIndex }">
-        {{ number.name }} - {{ number.participanst }}
-        <span v-if="index != activeElementIndex"> {{ totalTime(number) }} </span>
-        <span v-if="index == activeElementIndex"> {{ timeLeft }} </span>
-      </li>
-    </ol>
+    <section class="list-container">
+      <ol>
+        <li v-for="(number, index) in numbersList" v-on:click="setNumberTime(number, true)" :key="number.time" :class="{ active: index == activeElementIndex }">
+          {{ number.name }} - {{ number.participanst }}
+          <span v-if="index != activeElementIndex"> {{ totalTime(number) }} </span>
+          <span v-if="index == activeElementIndex"> {{ timeLeft }} </span>
+        </li>
+      </ol>
+    </section>
   </main>
 
   <script src="js/vue.global.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?ver=1.1"></script>
 </body>
 </html>

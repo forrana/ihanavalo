@@ -8,7 +8,7 @@
 
 a,
 button {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 a.button {
@@ -37,7 +37,7 @@ button.button {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
-  align-self: start;
+  align-self: center;
   background-color: #3e68ff;
   color: #fff;
   border-radius: 8px;
@@ -63,7 +63,7 @@ button.button:focus {
 }
 a.button-small,
 button.button-small {
-  font-size: 1.15rem;
+  font-size: 1.15em;
 }
 a.button-block,
 button.button-block {
@@ -100,7 +100,7 @@ li:hover {
 
 ol {
   margin-top: 0.6em;
-  padding-left: 1.3em;
+  padding-left: 1em;
 }
 
 body {
@@ -112,4 +112,72 @@ body {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+
+@media only screen and (max-device-width: 375px) {
+  body {
+    font-size: 20px;
+  }
+
+  .controls {
+    height: 10vh;
+  }
+
+  .list-container {
+    margin:  auto;
+  }
+
+  .list-container ol {
+    margin-top: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (max-device-width: 375px) {
+  body {
+    font-size: 24px;
+  }
+
+  .controls {
+    height: 10vh;
+  }
+
+  .list-container {
+    margin:  auto;
+  }
+
+  .list-container ol {
+    margin-top: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-device-width: 375px) and (max-device-width: 1200px){
+  body {
+    font-size: 27px;
+  }
+
+  .controls {
+    height: 10vh;
+  }
+
+  .list-container {
+    margin:  auto;
+  }
+
+  .list-container ol {
+    margin-top: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }

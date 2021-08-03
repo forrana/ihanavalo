@@ -5,12 +5,12 @@ const numbersListRaw = [
     time: 0
   },
   {
-    name: "???",
+    name: "Poi?",
     participanst: "???",
     time: 162
   },
   {
-    name: "???",
+    name: "Dragon?",
     participanst: "???",
     time: 305
   },
