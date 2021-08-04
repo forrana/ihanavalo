@@ -46,6 +46,7 @@ const EventHandling = {
       currentTime: 0,
       isPaused: true,
       isRepeatMode: false,
+      isLocked: false,
       timeDelta: 5,
       activeElementIndex: 0,
       isManualChangeInProcess: false,
@@ -84,6 +85,9 @@ const EventHandling = {
     },
     toggleRepeat() {
       this.isRepeatMode = !this.isRepeatMode
+    },
+    toggleLock() {
+      this.isLocked = !this.isLocked
     },
     totalTime(number) {
       let totalTime = number.totalTime;

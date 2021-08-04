@@ -61,6 +61,11 @@ button.button:focus {
   outline-color: transparent;
   box-shadow: 0 0 0 4px #0029be;
 }
+
+button.button:disabled {
+  background-color: #576080;
+}
+
 a.button-small,
 button.button-small {
   font-size: 1.15em;
@@ -143,7 +148,7 @@ body {
   }
 
   .controls {
-    height: 10vh;
+    height: 9vh;
   }
 
   .list-container {
@@ -152,7 +157,7 @@ body {
 
   .list-container ol {
     margin-top: 0;
-    height: 85vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
