@@ -1,73 +1,73 @@
 const numbersListRaw = [
   {
-    name: "Levistic",
-    participanst: "Suvi",
+    name: "Alku? + isolaatio",
+    participanst: "Al, Ja, To, Ma",
     time: 0
   },
   {
-    name: "Poi?",
-    participanst: "???",
-    time: 162
+    name: "Snake",
+    participanst: "Ka, Ma, El",
+    time: 100
   },
   {
-    name: "Dragon?",
-    participanst: "???",
-    time: 305
+    name: "Biisn tempo muuttuu",
+    participanst: "Ka, Ma, El",
+    time: 160
   },
   {
-    name: "Finale",
-    participanst: "???",
-    time: 450
+    name: "Comet + Rope dart",
+    participanst: "Al, Ka",
+    time: 213
   },
   {
-    name: "Wrapping up",
-    participanst: "???",
-    time: 515
+    name: "Sapeli",
+    participanst: "Ja, Ma, To, Ka",
+    time: 285
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Poi/ Kontaktikeppi",
+    participanst: "AL",
+    time: 340
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Hyppisduo",
+    participanst: "Ka, Ma",
+    time: 395
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Viikate",
+    participanst: "To?",
+    time: 495
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Fanit",
+    participanst: "Ka, Ma, El",
+    time: 570
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Dragon",
+    participanst: "Al",
+    time: 670
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Vanne",
+    participanst: "Ka, Ma, El",
+    time: 735
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Tuplakeppi + lyco",
+    participanst: "Ja, To, Ma",
+    time: 810
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Loppumusa",
+    participanst: "Kaikki",
+    time: 930
   },
   {
-    name: "Leaving stage",
-    participanst: "???",
-    time: 637
+    name: "Kummarrusbiisi",
+    participanst: "Kaikki",
+    time: 997
   }
 ]
 
