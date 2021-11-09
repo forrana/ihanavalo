@@ -15,6 +15,11 @@ a.button {
   text-decoration: none;
 }
 
+.lock {
+  position: fixed;
+  top: 92vh;
+}
+
 button.button {
   border: none;
   background-color: transparent;
@@ -159,8 +164,8 @@ body {
   }
 
   .list-container ol {
-    margin-top: auto;
-    height: 90vh;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
     display: flex;
     overflow: auto;
     flex-direction: column;
@@ -183,7 +188,8 @@ body {
   }
 
   .list-container ol {
-    margin-top: auto;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
     overflow: auto;
     display: flex;
     flex-direction: column;

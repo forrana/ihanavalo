@@ -110,18 +110,27 @@ const EventHandling = {
   },
   methods: {
     setNumberTime(number, isManual) {
-      if(isManual) this.selectedForRepeat = number;
-      this.$refs.audio.currentTime = number.time;
-      this.isManualChangeInProcess = isManual;
-    },
-    play() {
       let audioElement = this.$refs.audio;
-      audioElement.paused ? audioElement.play() : audioElement.pause();
+      if(isManual) this.selectedForRepeat = number;
+      audioElement.currentTime = number.time;
+      this.isManualChangeInProcess = isManual;
+      this.play(audioElement)
+    },
+    play(audioElement) {
+      audioElement.play();
       this.isPaused = audioElement.paused;
       audioElement.addEventListener('timeupdate', () => {
         this.currentTime = audioElement.currentTime.toFixed();
         this.activeElementIndex = this.numbersList.findIndex(({time, totalTime}) => this.currentTime >= time && this.currentTime < time+totalTime+this.timeDelta)
       });
+    },
+    pause(audioElement) {
+      audioElement.pause();
+      this.isPaused = audioElement.paused;
+    },
+    playOrPause() {
+      let audioElement = this.$refs.audio;
+      audioElement.paused ? this.play(audioElement) : this.pause(audioElement);
     },
     toggleRepeat() {
       this.isRepeatMode = !this.isRepeatMode
@@ -147,6 +156,13 @@ const EventHandling = {
       let timeLeft = startTime + totalTime - this.currentTime;
       return secondsToMMSS(timeLeft)
     }
+  },
+  created() {
+    window.addEventListener('keyup', (e) => {
+      if (e.code == 'Space') {
+        this.playOrPause()
+      }
+    });
   }
 }
 
