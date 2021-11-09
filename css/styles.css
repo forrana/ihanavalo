@@ -117,6 +117,8 @@ body {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 
@@ -130,6 +132,7 @@ body {
   }
 
   .list-container {
+    overflow: auto;
     margin:  auto;
   }
 
@@ -156,9 +159,10 @@ body {
   }
 
   .list-container ol {
-    margin-top: 0;
-    height: 75vh;
+    margin-top: auto;
+    height: 90vh;
     display: flex;
+    overflow: auto;
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -179,8 +183,8 @@ body {
   }
 
   .list-container ol {
-    margin-top: 0;
-    height: 75vh;
+    margin-top: auto;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
